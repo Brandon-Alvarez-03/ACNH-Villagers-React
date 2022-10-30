@@ -1,4 +1,5 @@
-import logo from './logo.svg';
+import Form from "./Form"
+import Slider from "./Slider"
 import './App.css';
 
 function App() {
@@ -7,6 +8,8 @@ function App() {
       <header className="App-header">
         <h1 class="title">Animal Crossing New Horizon Villagers</h1>
       </header>
+      <Form />
+      <Slider/>
     </div>
   );
 }
