@@ -1,18 +1,18 @@
-import React from "react";
 import axios from "axios";
+import React, {useEffect, useState} from "react";
 
 function Slider() {
   //API is open, no authentication required
+  const [val, setVal] = useState();
 
-  const url = "http://acnhapi.com/v1/villagers/";
+  const url = "http://acnhapi.com/v1/villagers";
 
   const villagerContainer = document.querySelector(".villager-container");
   const gallery = document.querySelector(".gallery");
   const leftBtn = document.querySelector(".left");
   const rightBtn = document.querySelector(".right");
 
-  function displayUI(dataObj) {
-
+  async function displayUI(dataObj) {
     for (const villager in dataObj) {
       console.log(dataObj[villager]["name"]["name-USen"]);
 
@@ -35,14 +35,18 @@ function Slider() {
   }
 
   async function fetchChars() {
-    let response = await axios(url);
-    displayUI(response.data);
+    const response = await axios(url);
+    setVal(response.data);
+    displayUI(val);
     blockSwipe();
     leftBtn.addEventListener("click", slideLeft);
     rightBtn.addEventListener("click", slideRight);
     compareValue();
   }
-  fetchChars();
+
+  useEffect(() => {
+    fetchChars();
+  }, [val]);
 
   let currentSlide = 0;
 
@@ -89,11 +93,9 @@ function Slider() {
       e.preventDefault();
       console.log(currentSlide + "Submit");
       let response = e.target[0].value;
-      
-      villagers.forEach((villager, index) => {
-        
-        if (response === villager.firstElementChild.innerText) {
 
+      villagers.forEach((villager, index) => {
+        if (response === villager.firstElementChild.innerText) {
           currentSlide = index;
           console.log(currentSlide + " before Transform");
           gallery.style.transform = `translateX(-${1000 * index}px)`;
