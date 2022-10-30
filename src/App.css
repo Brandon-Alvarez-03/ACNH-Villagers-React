@@ -1,0 +1,85 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("https://raw.githubusercontent.com/johnrobertmcc/ForeverNoted/master/app/assets/images/animal-crossing-opaque.png");
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+}
+
+.villager-container {
+  display: flex;
+  margin: auto;
+  max-width: 1000px;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.btn {
+  position: absolute;
+  height: 80%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 10px;
+}
+
+.left {
+  top: 10%;
+  left: 2%;
+}
+
+.right {
+  top: 10%;
+  right: 2%;
+}
+
+.gallery {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  transition: all 500ms ease;
+  /* justify-content: center; */
+  /* align-items: center;
+  align-content: space-around; */
+  margin: auto;
+  max-width: 1000px;
+}
+
+.villager-card {
+  list-style: none;
+  box-sizing: border-box;
+  height: 75%;
+  min-width: 1000px;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(66, 185, 153, 0.5);
+  margin: auto;
+}
+
+.gen-info {
+  flex-direction: column;
+  /* justify-content: space-around; */
+}
+
+img {
+  border-radius: 50%;
+  padding-bottom: 30px;
+}
+
+form {
+  margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
