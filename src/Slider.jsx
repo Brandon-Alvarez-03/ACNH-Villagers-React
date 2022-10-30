@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 
 function Slider() {
-  //API is open, no authentication reuired
+  //API is open, no authentication required
 
   const url = "http://acnhapi.com/v1/villagers/";
 
@@ -12,6 +12,7 @@ function Slider() {
   const rightBtn = document.querySelector(".right");
 
   function displayUI(dataObj) {
+
     for (const villager in dataObj) {
       console.log(dataObj[villager]["name"]["name-USen"]);
 
@@ -35,7 +36,6 @@ function Slider() {
 
   async function fetchChars() {
     let response = await axios(url);
-    // console.log(response.data);
     displayUI(response.data);
     blockSwipe();
     leftBtn.addEventListener("click", slideLeft);
@@ -82,22 +82,18 @@ function Slider() {
   }
   function compareValue() {
     let form = document.querySelector(".search-form");
-    // let body = document.querySelector("body");
     let villagers = document.querySelectorAll(".villager-card");
 
     form.addEventListener("submit", function (e) {
       console.log(e.target[0].value);
       e.preventDefault();
-
-      // const width = galleryItems[0].clientWidth;
       console.log(currentSlide + "Submit");
       let response = e.target[0].value;
-      // console.log(villagers);
+      
       villagers.forEach((villager, index) => {
-        // console.log(villager);
+        
         if (response === villager.firstElementChild.innerText) {
-          // console.log(response);
-          // console.log(villager);
+
           currentSlide = index;
           console.log(currentSlide + " before Transform");
           gallery.style.transform = `translateX(-${1000 * index}px)`;
