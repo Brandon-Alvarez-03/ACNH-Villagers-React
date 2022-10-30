@@ -8,16 +8,11 @@ function Slider() {
 
   const villagerContainer = document.querySelector(".villager-container");
   const gallery = document.querySelector(".gallery");
-  const galleryItems = villagerContainer.querySelectorAll(".villager-card");
   const leftBtn = document.querySelector(".left");
   const rightBtn = document.querySelector(".right");
 
   function displayUI(dataObj) {
-    // console.log(dataObj);
     for (const villager in dataObj) {
-      // console.log(villager);
-      // console.log(dataObj[villager]["catch-phrase"]);
-      // console.log(dataObj[villager]["image_uri"]);
       console.log(dataObj[villager]["name"]["name-USen"]);
 
       let htmlTemplate = `
@@ -93,14 +88,14 @@ function Slider() {
     form.addEventListener("submit", function (e) {
       console.log(e.target[0].value);
       e.preventDefault();
-      const galleryItems = villagerContainer.querySelectorAll(".villager-card");
+
       // const width = galleryItems[0].clientWidth;
       console.log(currentSlide + "Submit");
       let response = e.target[0].value;
       // console.log(villagers);
       villagers.forEach((villager, index) => {
         // console.log(villager);
-        if (response == villager.firstElementChild.innerText) {
+        if (response === villager.firstElementChild.innerText) {
           // console.log(response);
           // console.log(villager);
           currentSlide = index;
